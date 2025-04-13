@@ -6,4 +6,4 @@ class Settings(BaseSettings):
     OPENWEATHERMAP_API_KEY: str
 
     class Config:
-        env_file = ".env"  # Load environment variables from .env
+        env_file = ".env"
