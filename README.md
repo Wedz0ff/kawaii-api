@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://i.imgur.com/rHCXm9r.png" alt="Kawaii API" />
+ <img src="https://i.imgur.com/rHCXm9r.png" alt="Kawaii API" width="400" />
 </p>
   <p align="center">Kawaii API written in <a href="https://www.python.org/" target="_blank">Python</a> using <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a> as framework.</p>
 
