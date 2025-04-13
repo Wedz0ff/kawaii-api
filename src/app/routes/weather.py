@@ -1,9 +1,11 @@
 from fastapi import APIRouter, HTTPException
 from src.app.services.weather_service import get_current_weather
+from fastapi_cache.decorator import cache
 
 router = APIRouter()
 
 
+@cache(expire=60 * 2)  # 2 minutes
 @router.get("/weather")
 async def fetch_weather(city: str):
     try:

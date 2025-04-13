@@ -17,7 +17,7 @@ class CuriosityRequest(BaseModel):
 
 
 SYSTEM_PROMPT = """
-You are a historical/scientific fact API. Return JSON with:
+You are a historical/scientific/curiosity fact API. Return JSON with:
 - "title": Catchy 5-8 word headline
 - "text": Detailed 150-250 word explanation covering:
   1. Origin (who/when/where)
