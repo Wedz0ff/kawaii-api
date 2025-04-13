@@ -14,7 +14,6 @@ client = OpenAI(
 
 class CuriosityRequest(BaseModel):
     theme: str | None = None
-    detail_level: str = "high"
 
 
 SYSTEM_PROMPT = """
@@ -60,7 +59,7 @@ async def generate_curiosity(request: CuriosityRequest):
             temperature=0.7,
             stream=False,
         )
-
+        print("xd")
         return json.loads(response.choices[0].message.content)
 
     except Exception as e:
