@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: fastapi-app
     ports:
-      - "8000:8000"
+      - "3003:3003"
     environment:
       OPENWEATHERMAP_API_URL: ${OPENWEATHERMAP_API_URL}
       OPENWEATHERMAP_API_KEY: ${OPENWEATHERMAP_API_KEY}
