@@ -24,6 +24,10 @@ You are a historical/scientific/curiosity fact API. Return JSON with:
   2. Unexpected aspects
   3. Lasting impact
 Format text in 2-3 concise paragraphs.
+Previously generated curiosities:
+1. The invention of the printing press revolutionized knowledge sharing.
+2. The discovery of penicillin saved millions of lives.
+Ensure the new curiosity is unique and not similar to the above.
 """
 
 USER_PROMPT_TEMPLATE = """
@@ -40,6 +44,7 @@ Avoid introductory phrases - start directly with facts.
 async def generate_curiosity(request: CuriosityRequest):
     try:
         theme = request.theme or "history, technology, japanese anime or science"
+        specific_theme = f"{theme}, unique discoveries, rare events"
         response = client.chat.completions.create(
             model="deepseek-chat",
             messages=[
@@ -49,17 +54,15 @@ async def generate_curiosity(request: CuriosityRequest):
                 },
                 {
                     "role": "user",
-                    "content": USER_PROMPT_TEMPLATE.format(
-                        theme=theme or "technology,history,science, anime, art"
-                    ),
+                    "content": USER_PROMPT_TEMPLATE.format(theme=specific_theme),
                 },
             ],
             response_format={"type": "json_object"},
             max_tokens=600,
-            temperature=0.7,
+            temperature=0.9,
+            top_p=0.9,
             stream=False,
         )
-        print("xd")
         return json.loads(response.choices[0].message.content)
 
     except Exception as e:
