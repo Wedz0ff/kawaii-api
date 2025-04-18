@@ -7,7 +7,7 @@ router = APIRouter()
 
 
 @router.get("/random-curiosity")
-@cache(expire=60 * 60 * 6)  # 6 hours
+@cache(expire=60 * 60 * 2)  # 2 hours
 async def fetch_curiosity():
     request = CuriosityRequest()
     return await generate_curiosity(request)
